@@ -16,7 +16,7 @@ Background:
     When I click on "Users" link
     Then "user" page should be displayed
 
-
+@smoke
   Scenario: Go to books page
     When I click on "Books" link
     Then "Books" page should be displayed

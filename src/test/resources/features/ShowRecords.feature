@@ -1,4 +1,4 @@
-@show_records @smoke @regression  @lib-7031
+@show_records @regression  @lib-7031
 Feature: Show records functionality
 
   Background:

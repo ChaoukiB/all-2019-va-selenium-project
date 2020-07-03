@@ -9,7 +9,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Driver {
 
@@ -59,6 +64,19 @@ public class Driver {
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driver = new SafariDriver();
                     break;
+
+                case "remote-chrome":
+                    try {
+                       // DesiredCapabilities dcap = new DesiredCapabilities();
+                       // dcap.setBrowserName("chrome");
+                        URL url = new URL("http://192.168.1.66:4444/wd/hub");
+                        ChromeOptions chromeOptions = new ChromeOptions();
+                        //chromeOptions.merge(dcap);
+                        driver = new RemoteWebDriver(url, chromeOptions);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
         }
         return driver;
@@ -66,7 +84,6 @@ public class Driver {
 
     public static void closeDriver(){
         driver.quit();
-
         driver = null ;
     }
 }

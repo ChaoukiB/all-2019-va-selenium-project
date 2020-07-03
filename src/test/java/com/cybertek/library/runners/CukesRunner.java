@@ -5,10 +5,9 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(
+@CucumberOptions( strict = true,
         plugin = {"json:target/Cucumber.json"},
         features = "src/test/resources/features",
-
         glue = "com/cybertek/library/step_deinitions",
         dryRun = false,
         tags =  "@smoke"

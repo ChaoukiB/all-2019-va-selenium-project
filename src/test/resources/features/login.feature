@@ -1,4 +1,4 @@
-@smoke @lib_100 @login
+ @lib_100 @login
 Feature: Login
   As a user,
   I should be able to login
